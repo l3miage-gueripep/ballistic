@@ -11,9 +11,9 @@ import {StyleSheet, useColorScheme} from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import { LeagueDetailsPage } from './components/LeagueDetail';
+import { DailyMatchesListComponent } from './components/DailyMatchesListComponent';
 import { RootStackParamList } from './models/NavigationProps';
-import HomePage from './components/HomePage';
+import HomePage from './screens/HomePage';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -23,7 +23,7 @@ function App(): React.JSX.Element {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="HomePage">
         <Stack.Screen name="HomePage" component={HomePage} />
-        <Stack.Screen name="LeagueDetail" component={LeagueDetailsPage} />
+        <Stack.Screen name="LeagueDetail" component={DailyMatchesListComponent} />
       </Stack.Navigator>
     </NavigationContainer>
   );

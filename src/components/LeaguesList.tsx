@@ -1,25 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import {fetchData} from '../services/Sportmonks';
 import {useNavigation} from '@react-navigation/native';
 import {HomePageNavigationProp, HomePageProps} from '../models/NavigationProps';
+import { useLeaguesData } from '../states/UseLeaguesData';
 
-export const HomePage: React.FC<HomePageProps> = () => {
-  const [data, setData] = useState<League[] | null>();
+export const LeaguesList = () => {
+  const data = useLeaguesData();
   const navigation = useNavigation<HomePageNavigationProp>();
-
-  useEffect(() => {
-    fetchData('leagues')
-      .then(result => {
-        console.log(result); // Log the data
-        setData(result.data); // Set the data state to the data array
-      })
-      .catch(error => console.error(error));
-  }, []);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to the Soccer App!</Text>
       {data &&
         data.map((league: any) => (
           <TouchableOpacity
@@ -61,4 +51,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomePage;
+export default LeaguesList;
