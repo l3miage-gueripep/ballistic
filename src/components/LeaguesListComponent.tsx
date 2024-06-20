@@ -1,22 +1,21 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {HomePageNavigationProp, HomePageProps} from '../models/NavigationProps';
-import { useLeaguesData } from '../states/UseLeaguesData';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { HomePageNavigationProp } from '../models/navigation-props';
+import { useLeaguesData } from '../states/UseLeaguesListState';
 
-export const LeaguesList = () => {
+export const LeaguesListComponent = () => {
   const data = useLeaguesData();
   const navigation = useNavigation<HomePageNavigationProp>();
 
   return (
     <View style={styles.container}>
-      {data &&
-        data.map((league: any) => (
+      {data?.map((league: any) => (
           <TouchableOpacity
             key={league.id}
             style={styles.league}
             onPress={() =>
-              navigation.navigate('LeagueDetail', {leagueId: league.id})
+              navigation.navigate('StandingsPage', {leagueId: league.id})
             }>
             <Image source={{uri: league.image_path}} style={styles.image} />
             <Text style={styles.leagueName}>{league.name}</Text>
@@ -51,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LeaguesList;
+export default LeaguesListComponent;

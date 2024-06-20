@@ -1,11 +1,5 @@
-import {RouteProp} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {
-  LeagueDetailsPageProps,
-  RootStackParamList,
-} from '../models/NavigationProps';
-import {Image, StyleSheet, Text, View} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import { useDailyMatchesList } from '../states/UseDailyMatchesList';
 
 export const DailyMatchesListComponent = () => {

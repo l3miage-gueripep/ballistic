@@ -1,17 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import {fetchData} from '../services/Sportmonks';
-import {useNavigation} from '@react-navigation/native';
-import {HomePageNavigationProp, HomePageProps} from '../models/NavigationProps';
-import { League } from '../models/league';
-import LeaguesList from '../components/LeaguesList';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import { DailyMatchesListComponent } from '../components/DailyMatchesListComponent';
+import LeaguesListComponent from '../components/LeaguesListComponent';
+import { HomePageProps } from '../models/navigation-props';
 
 export const HomePage: React.FC<HomePageProps> = () => {
   return (
     <View style={styles.container}>
         <Text style={styles.title}>Welcome to the Soccer App!</Text>
-        <LeaguesList></LeaguesList>
+        <LeaguesListComponent></LeaguesListComponent>
         <DailyMatchesListComponent></DailyMatchesListComponent>
     </View>
   );
