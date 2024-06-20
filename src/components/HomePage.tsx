@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {fetchData} from '../services/Sportmonks';
-import {NavigationContainer, useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
+import {useNavigation} from '@react-navigation/native';
 import {HomePageNavigationProp, HomePageProps} from '../models/NavigationProps';
 
 export const HomePage: React.FC<HomePageProps> = () => {
