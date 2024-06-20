@@ -50,6 +50,7 @@ function findSeason(seasons: any, leagueId: number, currentYearString: string) {
     let latestSeason = seasons.data[0];
     let i: number = 1;
     let currentStarted: boolean = false;
+    
     while (i < seasons.data.length && !currentStarted) {
         if (seasons.data[i].league_id === leagueId) {
             if (seasons.data[i].starting_at > latestSeason.starting_at && !seasons.data[i].is_current) {
