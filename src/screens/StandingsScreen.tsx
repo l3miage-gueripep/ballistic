@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { CurrentLeagueStandingsListComponent } from '../components/CurrentLeagueStandingsListComponent';
 import { StandingsPageNavigationRouteParams, StandingsPageProps } from '../models/navigation-props';
 
-const StandingsScreen: React.FC<StandingsPageProps> = () => {
+export const StandingsScreen: React.FC<StandingsPageProps> = () => {
     const route = useRoute();
     const { leagueId } = route.params as StandingsPageNavigationRouteParams;
 

@@ -1,5 +1,7 @@
 import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { Match } from "./match";
+import { Squad } from "./squad";
 
 export type RootStackParamList = {
   HomePage: undefined;
@@ -42,6 +44,13 @@ export type CurrentLeagueStandingsListComponentProps = {
 }
 
 //team details
-export type TeamDetailsComponentProps = {
+export type TeamMatchesListComponentProps = {
+  matches: Match[];
+  teamId: number;
+}
+
+//team details
+export type TeamPlayersListComponentProps = {
+  squad: Squad;
   teamId: number;
 }

@@ -7,7 +7,7 @@ import { HomePageProps } from '../models/navigation-props';
 export const HomePage: React.FC<HomePageProps> = () => {
   return (
     <View style={styles.container}>
-        <Text style={styles.title}>Welcome to the Soccer App!</Text>
+        <Text style={styles.title}>Welcome to Ballistic!{'\n'}The best northern football championship app 😎</Text>
         <LeaguesListComponent></LeaguesListComponent>
         <DailyMatchesListComponent></DailyMatchesListComponent>
     </View>
@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   league: {
     flexDirection: 'row',

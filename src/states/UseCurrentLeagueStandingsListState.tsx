@@ -33,7 +33,7 @@ export const useCurrentLeagueStandingsListState = (leagueId: number) => {
                     const leagueStanding = new LeagueStanding(standing.id, standing.points, tempTeams.find((team) => team.id === standing.participant_id) ?? new Team(standing.participant_id, "Unknown", ""));
                     tempLeagueStandingsList.push(leagueStanding);
                 });
-                setLeagueStandingsList(tempLeagueStandingsList);
+                setLeagueStandingsList(tempLeagueStandingsList.sort((a, b) => b.points - a.points));
             } catch (error) {
                 setError(true);
             }
