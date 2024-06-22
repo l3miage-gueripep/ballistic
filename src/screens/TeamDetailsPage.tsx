@@ -1,11 +1,11 @@
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { SceneMap, TabView } from 'react-native-tab-view';
 import TeamMatchesListComponent from '../components/TeamMatchesListComponent';
 import TeamPlayersListComponent from '../components/TeamPlayersListComponent';
 import { Match } from '../models/match';
-import { TeamDetailsNavigationRouteParams, TeamDetailsProps } from '../models/navigation-props';
+import { HomePageNavigationProp, TeamDetailsNavigationRouteParams, TeamDetailsProps } from '../models/navigation-props';
 import { Squad } from '../models/squad';
 import { useTeamMatches } from '../states/UseTeamMatchesList';
 import { useTeamPlayers } from '../states/UseTeamPlayersList';
@@ -13,6 +13,7 @@ import { useTeamPlayers } from '../states/UseTeamPlayersList';
 export const TeamDetailsPage: React.FC<TeamDetailsProps> = () => {
 
   const route = useRoute();
+  const navigation = useNavigation<HomePageNavigationProp>();
   const { teamId } = route.params as TeamDetailsNavigationRouteParams;
   const matches = useTeamMatches(teamId);
   const squad = useTeamPlayers(teamId);

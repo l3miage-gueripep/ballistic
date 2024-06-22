@@ -20,7 +20,7 @@ export const DailyMatchesListComponent = () => {
             <Image source={{ uri: match.away_team.logo }} style={styles.teamLogo} />
             <Text style={styles.teamName}>{match.away_team.name}</Text>
           </View>
-          <Text style={styles.startTime}>{match.date.toLocaleTimeString()}</Text>
+          <Text style={styles.startTime}>{match.date}</Text>
         </View>
       ))}
     </View>

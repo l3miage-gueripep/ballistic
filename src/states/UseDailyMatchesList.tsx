@@ -26,8 +26,7 @@ export const useDailyMatchesList  = () => {
         Promise.all(fetchTeamPromises).then(results => {
           const matchesTemp: Match[] = [];
           results.forEach(({ team1, team2, fixture }) => {
-            const date = new Date(fixture.starting_at);
-            const match = new Match(fixture.id, team1, team2, date);
+            const match = new Match(fixture.id, team1, team2, fixture.starting_at);
             matchesTemp.push(match);
           });
           setMatches(matchesTemp);

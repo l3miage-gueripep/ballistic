@@ -1,6 +1,7 @@
 import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { Match } from "./match";
+import { MatchEvent } from "./match-event";
 import { Player } from "./player";
 import { Squad } from "./squad";
 
@@ -9,6 +10,7 @@ export type RootStackParamList = {
   StandingsPage: {leagueId: number};
   TeamDetailsPage: {teamId: number};
   PlayerDetailsScreen: {player: Player};
+  MatchDetailsScreen: {match: Match, localTeamId: number};
 };
 
 // HomePage
@@ -39,6 +41,17 @@ export type PlayerDetailsScreenProps = {
   navigation: PlayerDetailsScreenNavigationProp;
 };
 
+export type MatchDetailsScreenRouteProp = RouteProp<RootStackParamList, 'MatchDetailsScreen'>;
+export type MatchDetailsScreenNavigationProp = StackNavigationProp<RootStackParamList, 'MatchDetailsScreen'>;
+export type MatchDetailsScreenNavigationRouteParams = {
+  match: Match;
+  teamId: number;
+};
+export type MatchDetailsScreenProps = {
+  route: MatchDetailsScreenRouteProp;
+  navigation: MatchDetailsScreenNavigationProp;
+};
+
 // Team detateamils screen
 export type TeamDetailsRouteProp = StackNavigationProp<RootStackParamList, 'TeamDetailsPage'>;
 export type TeamDetailsNavigationProp = StackNavigationProp<RootStackParamList, 'TeamDetailsPage'>;
@@ -49,6 +62,10 @@ export type TeamDetailsProps = {
   route: TeamDetailsRouteProp;
   navigation: HomePageNavigationProp;
 };
+
+
+
+//components
 
 //standings list
 export type CurrentLeagueStandingsListComponentProps = {
@@ -65,4 +82,10 @@ export type TeamMatchesListComponentProps = {
 export type TeamPlayersListComponentProps = {
   squad: Squad;
   teamId: number;
+}
+
+//match event list
+export type MatchEventsListComponentProps = {
+  events: MatchEvent[];
+  localTeamId: number;
 }

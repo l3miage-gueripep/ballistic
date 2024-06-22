@@ -1,7 +1,7 @@
-enum MatchResult {
+enum MatchResultEnum {
     Win = "Win",
     Loss = "Loss",
     Draw = "Draw",
 }
 
-export default MatchResult;
+export default MatchResultEnum;

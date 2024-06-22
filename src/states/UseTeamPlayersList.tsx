@@ -15,10 +15,8 @@ export const useTeamPlayers = (teamId: number) => {
         const playersData = players.data.players;
         // const player : Player = new Player(players.data.id, players.data.name, players.data.image_path, players.data.players);
         playersData.forEach((player: any) => {
-          const newPlayer = new Player(player.player.id, player.player.firstname, player.player.lastname, player.player.display_name, player.player.image_path, player.player.position.name, player.player.nationality.image_path, player.player.date_of_birth);
-          tempSquad.addPlayer(newPlayer);
+          tempSquad.addPlayer(Player.fromApiData(player.player)!);
         });
-        console.log(tempSquad.forwards);
         setSquad(tempSquad);
       } catch (error) {
         console.error(error);
