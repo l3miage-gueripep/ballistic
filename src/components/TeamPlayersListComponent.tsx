@@ -3,7 +3,9 @@ import { Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'reac
 import { FlatList } from 'react-native-gesture-handler';
 import { ScrollView } from 'react-native-virtualized-view';
 
+import { useNavigation } from '@react-navigation/native';
 import {
+  HomePageNavigationProp,
   TeamPlayersListComponentProps
 } from '../models/navigation-props';
 import { Player } from '../models/player';
@@ -11,14 +13,18 @@ import { Player } from '../models/player';
 export const TeamPlayersListComponent: React.FC<TeamPlayersListComponentProps> = ({
   squad, teamId
 }) => {
+  const navigation = useNavigation<HomePageNavigationProp>();
   const renderItem = ({ item }: { item: Player }) => {
     return (<View>
       <TouchableOpacity style={[styles.item]}
-        key={item.id}>
+        key={item.id}
+        onPress={() =>
+          navigation.navigate('PlayerDetailsScreen', { player: item })
+        }>
         <Image source={{ uri: item.face_image }} style={styles.face} />
         <Image source={{ uri: item.country_flag }} style={styles.flag} />
         <Text>
-          {item.name}
+          {item.display_name}
         </Text>
 
       </TouchableOpacity>

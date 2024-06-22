@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { LeagueStanding } from '../models/league-standing';
 import {
   CurrentLeagueStandingsListComponentProps,
-  StandingsPageNavigationProp,
+  StandingsScreenNavigationProp,
 } from '../models/navigation-props';
 import { useCurrentLeagueStandingsListState } from '../states/UseCurrentLeagueStandingsListState';
 
@@ -15,7 +15,7 @@ export const CurrentLeagueStandingsListComponent = ({
   const { leagueStandingsList, loading, error } =
     useCurrentLeagueStandingsListState(leagueId);
 
-  const navigation = useNavigation<StandingsPageNavigationProp>();
+  const navigation = useNavigation<StandingsScreenNavigationProp>();
   const renderItem = ({ item, index }: { item: LeagueStanding; index: number }) => (
     <View>
       <TouchableOpacity style={styles.item}
