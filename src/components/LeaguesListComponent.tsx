@@ -34,11 +34,14 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
+
   },
   league: {
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 20,
+
+     backgroundColor:'purple',
   },
   image: {
     width: 50,
@@ -47,6 +50,7 @@ const styles = StyleSheet.create({
   },
   leagueName: {
     fontSize: 18,
+    color:'green',
   },
 });
 
