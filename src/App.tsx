@@ -4,6 +4,7 @@ import { useColorScheme } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { RootStackParamList } from './models/navigation-props';
+import Start from './screens/Start';
 import HomePage from './screens/HomePage';
 import MatchDetailsScreen from './screens/MatchDetailsScreen';
 import PlayerDetailsScreen from './screens/PlayerDetailsScreen';
@@ -16,7 +17,8 @@ function App(): React.JSX.Element {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="HomePage">
+      <Stack.Navigator initialRouteName="Start">
+       <Stack.Screen name="Start" component={Start} />
         <Stack.Screen name="HomePage" component={HomePage} />
         <Stack.Screen name="StandingsPage" component={StandingsScreen} />
         <Stack.Screen name="TeamDetailsPage" component={TeamDetailsPage} />

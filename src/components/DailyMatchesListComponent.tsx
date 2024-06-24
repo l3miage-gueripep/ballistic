@@ -6,7 +6,7 @@ export const DailyMatchesListComponent = () => {
   const { date, matches } = useDailyMatchesList();
   return (
     <View style={styles.matchesContainer}>
-      <Text>
+      <Text style={styles.match}>
         Matches on {date}
       </Text>
       {matches?.map((match, index) => (
@@ -15,12 +15,12 @@ export const DailyMatchesListComponent = () => {
             <Image source={{ uri: match.local_team.logo }} style={styles.teamLogo} />
             <Text style={styles.teamName}>{match.local_team.name}</Text>
           </View>
-          <Text style={styles.vs}>vs</Text>
+          <Text style={styles.startTime}>{match.date}</Text>
           <View style={styles.team}>
             <Image source={{ uri: match.away_team.logo }} style={styles.teamLogo} />
             <Text style={styles.teamName}>{match.away_team.name}</Text>
           </View>
-          <Text style={styles.startTime}>{match.date}</Text>
+
         </View>
       ))}
     </View>
@@ -29,17 +29,20 @@ export const DailyMatchesListComponent = () => {
 
 const styles = StyleSheet.create({
   matchesContainer: {
-    flexDirection: 'column', // Correctly typed
+    flexDirection: 'column',
+    padding: 20,
   },
   matchItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10, // Example of adding space between items instead of using gap
+    marginBottom: 10,
+    backgroundColor: '#0B192D',
+    padding:10,
   },
   team: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
-    marginRight: 10, // Example of adding space between items instead of using gap
+    marginRight: 10,
   },
   teamLogo: {
     width: 50,
@@ -48,13 +51,20 @@ const styles = StyleSheet.create({
   },
   teamName: {
     fontWeight: 'bold',
-  },
-  vs: {
-    fontWeight: 'bold',
-    fontSize: 16,
+    width: 90,
+    textAlign: 'center',
+    marginTop:5,
+    color:'white'
   },
   startTime: {
     marginLeft: 'auto',
     fontStyle: 'italic',
+    color: '#D9D9D9',
+  },
+  match: {
+      fontSize: 21,
+      marginBottom: 10,
+      color: 'white',
+      fontWeight: 'bold',
   },
 });

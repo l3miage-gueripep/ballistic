@@ -27,9 +27,11 @@ export const LeaguesListComponent = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
+    padding: 20,
+    marginBottom:20,
   },
   title: {
     fontSize: 24,
@@ -39,9 +41,14 @@ const styles = StyleSheet.create({
   league: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 20,
-
-     backgroundColor:'purple',
+        justifyContent: 'center',
+        margin: 20,
+        width: 180,
+        height: 180,
+        borderRadius: 90,
+        backgroundColor: 'white',
+        borderWidth: 2,
+        borderColor: '#0496FF',
   },
   image: {
     width: 50,
@@ -50,7 +57,7 @@ const styles = StyleSheet.create({
   },
   leagueName: {
     fontSize: 18,
-    color:'green',
+    color:'black',
   },
 });
 
