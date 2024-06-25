@@ -18,12 +18,71 @@ function App(): React.JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Start">
-       <Stack.Screen name="Start" component={Start} />
-        <Stack.Screen name="HomePage" component={HomePage} />
-        <Stack.Screen name="StandingsPage" component={StandingsScreen} />
-        <Stack.Screen name="TeamDetailsPage" component={TeamDetailsPage} />
-        <Stack.Screen name="PlayerDetailsScreen" component={PlayerDetailsScreen} />
-        <Stack.Screen name="MatchDetailsScreen" component={MatchDetailsScreen} />
+       <Stack.Screen name="Start" component={Start} options={{
+                                                                title: 'SCORELY',
+                                                             headerStyle: {
+                                                               backgroundColor: '#041020',
+                                                             },
+                                                             headerTintColor: '#0496FF',
+                                                             headerTitleStyle: {
+                                                               fontWeight: 'bold',
+                                                             },
+                                                           }}/>
+        <Stack.Screen name="HomePage" component={HomePage} options={{
+                                                                        title: 'HOME',
+
+                                                                    headerStyle: {
+                                                                      backgroundColor: '#041020',
+                                                                    },
+                                                                    headerTintColor: '#fff',
+                                                                    headerTitleStyle: {
+                                                                      fontWeight: 'bold',
+                                                                    },
+                                                                  }}/>
+        <Stack.Screen name="StandingsPage" component={StandingsScreen} options={{
+                                                                                title: 'STANDINGS',
+
+                                                                                 headerStyle: {
+                                                                                   backgroundColor: '#041020',
+                                                                                 },
+                                                                                 headerTintColor: '#fff',
+                                                                                 headerTitleStyle: {
+                                                                                   fontWeight: 'bold',
+                                                                                 },
+                                                                               }}/>
+        <Stack.Screen name="TeamDetailsPage" component={TeamDetailsPage} options={{
+                                                                              title: 'TEAM DETAILS',
+
+                                                                              headerStyle: {
+                                                                                backgroundColor: '#041020',
+                                                                              },
+                                                                              headerTintColor: '#fff',
+                                                                              headerTitleStyle: {
+                                                                                fontWeight: 'bold',
+                                                                              },
+                                                                            }} />
+        <Stack.Screen name="PlayerDetailsScreen" component={PlayerDetailsScreen} options={{
+                                                                                title: 'PLAYER DETAILS',
+
+                                                                                  headerStyle: {
+                                                                                    backgroundColor: '#041020',
+                                                                                  },
+                                                                                  headerTintColor: '#fff',
+                                                                                  headerTitleStyle: {
+                                                                                    fontWeight: 'bold',
+                                                                                  },
+                                                                                }}/>
+        <Stack.Screen name="MatchDetailsScreen" component={MatchDetailsScreen}options={{
+                                                                        title: 'MATCH DETAILS',
+
+                                                                                   headerStyle: {
+                                                                                     backgroundColor: '#041020',
+                                                                                   },
+                                                                                   headerTintColor: '#fff',
+                                                                                   headerTitleStyle: {
+                                                                                     fontWeight: 'bold',
+                                                                                   },
+                                                                                 }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
