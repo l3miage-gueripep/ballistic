@@ -1,12 +1,13 @@
 import { RouteProp, useRoute } from "@react-navigation/native";
-import { Image, Text, View } from "react-native";
+import { Dimensions, Image, Text, View } from "react-native";
 import { PlayerDetailsScreenNavigationRouteParams, PlayerDetailsScreenProps } from "../models/navigation-props";
+import { ScrollView } from "react-native-gesture-handler";
 
 export const PlayerDetailsScreen: React.FC<PlayerDetailsScreenProps> = () => {
     const route = useRoute<RouteProp<{ params: PlayerDetailsScreenNavigationRouteParams }, 'params'>>();
     const { player } = route.params;
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Text style={styles.title}>Player Details</Text>
             <View style={styles.playerCard}>
                 <View style={styles.playerImg}>
@@ -26,9 +27,12 @@ export const PlayerDetailsScreen: React.FC<PlayerDetailsScreenProps> = () => {
             </View>
 
 
-        </View>
+        </ScrollView>
     );
 };
+
+const screenHeight = Dimensions.get('window').height - 200; // Get the screen height
+const screenWidth = Dimensions.get('window').width - 50; // Get the screen width
 
 const styles = {
 container:{

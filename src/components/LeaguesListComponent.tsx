@@ -18,7 +18,6 @@ export const LeaguesListComponent = () => {
               navigation.navigate('StandingsPage', {leagueId: league.id})
             }>
             <Image source={{uri: league.image_path}} style={styles.image} />
-            <Text style={styles.leagueName}>{league.name}</Text>
           </TouchableOpacity>
         ))}
     </View>
@@ -42,17 +41,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
         justifyContent: 'center',
+        marginTop: 40,
         margin: 20,
-        width: 180,
-        height: 180,
+        width: 150,
+        height: 150,
         borderRadius: 90,
         backgroundColor: 'white',
         borderWidth: 2,
         borderColor: '#0496FF',
   },
   image: {
-    width: 50,
-    height: 50,
+    width: 90,
+    height: 80,
     marginRight: 10,
   },
   leagueName: {

@@ -7,7 +7,6 @@ import { HomePageProps } from '../models/navigation-props';
 export const HomePage: React.FC<HomePageProps> = () => {
   return (
     <View style={styles.container}>
-         {/*<Text style={styles.title}>Welcome to Ballistic!{'\n'}The best northern football championship app 😎</Text>*/}
         <LeaguesListComponent ></LeaguesListComponent>
         <DailyMatchesListComponent></DailyMatchesListComponent>
     </View>

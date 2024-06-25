@@ -17,7 +17,6 @@ export const useTeamMatches = (teamId: number) => {
       const tempMatches: Match[] = [];
       try {
         const matches = await sportmonksService.fetchData(`teams/${teamId}?include=latest.scores;latest.participants`);
-        console.log(matches.data);
         matches.data.latest.forEach((match: any) => {
           tempMatches.push(Match.fromApiData(match));
         });

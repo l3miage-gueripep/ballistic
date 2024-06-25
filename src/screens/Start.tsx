@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, Text, View ,Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View ,Image, TouchableOpacity, Dimensions} from 'react-native';
 import { StartNavigationProp } from '../models/navigation-props';
 
 export const Start: React.FC<StartProps> = () => {
@@ -19,6 +19,9 @@ export const Start: React.FC<StartProps> = () => {
   );
 };
 
+const screenHeight = Dimensions.get('window').height - 200; // Get the screen height
+
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -33,7 +36,7 @@ const styles = StyleSheet.create({
     },
     startImage:{
     width: 560,  // Utilise la largeur de l'écran
-    height: 690,  // Utilise la hauteur de l'écran
+    height: screenHeight,  // Utilise la hauteur de l'écran
     resizeMode: 'contain',
     transform: [{ rotate: '-12deg' }],
     },
