@@ -21,7 +21,7 @@ export const MatchEventsListComponent: React.FC<MatchEventsListComponentProps> =
     const isHomeEvent = item.team_id === localTeamId;
 
     return (<View style={!isHomeEvent ? styles.awayEvent : null}>
-      <View>
+      <View style={styles.test}>
         <View style={styles.eventHeader}>
           <Image source={{ uri: item.player?.face_image }} style={styles.face} />
           {
@@ -49,15 +49,14 @@ export const MatchEventsListComponent: React.FC<MatchEventsListComponentProps> =
           }
         </View>
 
-        <Text>
+        <Text style={styles.text}>
           {item.type}
           {isGoal ? (
             <Text>
-              !!!!!!!!!!!!!!!!!!
             </Text>
           ) : null} - {
             isSubstitution ? (
-              <Text>
+              <Text style={styles.text}>
                 In: 
               </Text>
             ) : null
@@ -65,12 +64,12 @@ export const MatchEventsListComponent: React.FC<MatchEventsListComponentProps> =
         </Text>
         {
           isSubstitution ? (
-            <Text>
+            <Text style={styles.text}>
               Out: {item.related_player?.display_name}
             </Text>
           ) : null
         }
-        <Text>{item.minute}
+        <Text style={styles.text}>{item.minute}
           {item.extra_minute ? ` + ${item.extra_minute}` : ''}
         </Text>
 
@@ -91,6 +90,8 @@ export const MatchEventsListComponent: React.FC<MatchEventsListComponentProps> =
 };
 
 const styles = StyleSheet.create({
+test:{borderBottomWidth: 2,
+              borderBottomColor: 'white',},
   container: {
     flex: 1,
     width: '100%',
@@ -104,11 +105,14 @@ const styles = StyleSheet.create({
     padding: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
+
   },
   face: {
     width: 50,
     height: 50,
-    marginRight: 10,
+    backgroundColor:'white',
+    borderRadius:40,
+    margin: 20,
   },
   flag: {
     width: 80,
@@ -124,12 +128,19 @@ const styles = StyleSheet.create({
   eventHeader: {
     flexDirection: 'row',
     alignItems: 'center',
+
+  },
+  text:{
+  color:'white',
   },
   awayEvent: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    backgroundColor: 'lightgray',
+    backgroundColor: '#041020',
+    paddingTop:20,
+    borderBottomWidth: 1,
+    borderBottomColor: 'white',
   },
 
 });

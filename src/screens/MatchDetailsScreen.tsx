@@ -22,6 +22,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         width: '100%',
+        backgroundColor:'#041020',
+
     },
     flag: {
         width: 50,
