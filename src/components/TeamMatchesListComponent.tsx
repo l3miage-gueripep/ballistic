@@ -20,6 +20,7 @@ export const TeamMatchesListComponent: React.FC<TeamMatchesListComponentProps> =
         data={matches}
         renderItem={({ item }) => MatchResultComponent({ match: item, teamId, navigation })}
         keyExtractor={item => item.id.toString()}
+        style={styles.test}
       />
     </SafeAreaView>
   );
@@ -55,10 +56,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
   },
-  image: {
-    width: 50,
-    height: 50,
-  },
+  test:{
+  backgroundColor:'red',}
 });
 
 export default TeamMatchesListComponent;
