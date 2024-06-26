@@ -11,7 +11,7 @@ Faire ensuite
 Appuyer ensuite sur a pour lancer l'application sur android
 
 # Fonctionnalités
-Ballistic est une appli permettant de consulter les futurs matchs et résultats ainsi que des informations sur les équipes et joueurs des ligues de football écossaises et danoises.
+Scorely est une appli permettant de consulter les futurs matchs et résultats ainsi que des informations sur les équipes et joueurs des ligues de football écossaises et danoises.
 La première page de l'application
 L'application dispose d'une page d'accueil affichant les différents matchs se déroulant ce jour (elle est actuellement sur une date précise afin de donner un exemple car aucun match ne se déroule actuellement), et dispose de 2 surface clicables permettant d'accéder aux détails de chaque ligue.
 Une fois que l'on clique afin d'accèder aux détails d'une ligue, on peut voir les standings correspondants. Toutes les équipes jouants dans cette ligue sont donc classées par leur nombre de points. On peut également cliquer dessus pour voir plus de détails.
