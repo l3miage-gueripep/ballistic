@@ -12,6 +12,8 @@ export type RootStackParamList = {
   PlayerDetailsScreen: {player: Player};
   MatchDetailsScreen: {match: Match, localTeamId: number};
 };
+// Start
+export type StartNavigationProp = StackNavigationProp<RootStackParamList, 'Start'>;
 
 // HomePage
 export type HomePageRouteProp = StackNavigationProp<RootStackParamList, 'HomePage'>;

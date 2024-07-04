@@ -17,7 +17,7 @@ export const CurrentLeagueStandingsListComponent = ({
 
   const navigation = useNavigation<StandingsScreenNavigationProp>();
   const renderItem = ({ item, index }: { item: LeagueStanding; index: number }) => (
-    <View>
+    <View >
       <TouchableOpacity style={styles.item}
         key={leagueId}
         onPress={() =>
@@ -27,9 +27,9 @@ export const CurrentLeagueStandingsListComponent = ({
           <Text style={styles.index}>{index + 1}. </Text>
 
           <Image source={{ uri: item.team.logo }} style={styles.image} />
-          <Text>{item.team.name}</Text>
+          <Text style={styles.color}>{item.team.name}</Text>
         </View>
-        <Text>{item.points}</Text>
+        <Text style={styles.color}>{item.points}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -37,8 +37,8 @@ export const CurrentLeagueStandingsListComponent = ({
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text>Team</Text>
-        <Text>Points</Text>
+        <Text style={styles.color}>Team</Text>
+        <Text style={styles.color}>Points</Text>
       </View>
       <FlatList
         data={leagueStandingsList}
@@ -54,18 +54,22 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
     width: '100%',
+    backgroundColor:'#041020',
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 20,
   },
+  color:{
+  color:'white',
+  },
   index: {
     marginRight: 10, // Adjust spacing as needed
     fontWeight: 'bold', // Optional: makes the number stand out
+    color:'white',
   },
   item: {
-    backgroundColor: '#f9c2ff',
     padding: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -76,6 +80,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
+
   },
   image: {
     width: 50,

@@ -3,6 +3,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Match } from '../models/match';
 import MatchResultEnum from '../models/match-result-enum';
 
+
 const MatchResultContentComponent = ({ match, teamId: teamId }: { match: Match; teamId: number }) => {
   const isLocal = match.local_team.id === teamId;
   const { teamScore, opponentScore } = isLocal
@@ -12,19 +13,23 @@ const MatchResultContentComponent = ({ match, teamId: teamId }: { match: Match; 
   const matchResult: MatchResultEnum = teamScore > opponentScore ? MatchResultEnum.Win : teamScore < opponentScore ? MatchResultEnum.Loss : MatchResultEnum.Draw;
 
   return (
-    <View style={[styles.item, matchResult === MatchResultEnum.Win ? styles.won : matchResult === MatchResultEnum.Loss ? styles.lost : styles.draw]}>
-      <Text>
-        {match.date}
-      </Text>
-      <View style={styles.team}>
-        <Image source={{ uri: match.local_team.logo }} style={styles.image} />
-        <Text>{match.local_team.name}</Text>
-      </View>
-      <Text>{match.local_score} - {match.away_score}</Text>
-      <View style={styles.team}>
-        <Image source={{ uri: match.away_team.logo }} style={styles.image} />
-        <Text>{match.away_team.name}</Text>
-      </View>
+    <View style={styles.vue}>
+            <View><Text style={styles.textCenter}>{match.date}</Text></View>
+
+        <View style={[styles.item, matchResult === MatchResultEnum.Win ? styles.won : matchResult === MatchResultEnum.Loss ? styles.lost : styles.draw]}>
+              <View style={styles.team}>
+                <Image source={{ uri: match.local_team.logo }} style={styles.image} />
+                <Text style={styles.teamName} >{match.local_team.name}</Text>
+              </View>
+              <View style={styles.scoreContainer}>
+                   <Text style={styles.score}>{match.local_score} - {match.away_score}</Text>
+              </View>
+              <View style={styles.team}>
+                <Image source={{ uri: match.away_team.logo }} style={styles.image} />
+                <Text  style={styles.teamName}>{match.away_team.name}</Text>
+              </View>
+
+        </View>
     </View>
   );
 };
@@ -59,20 +64,39 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   won: {
-    backgroundColor: 'green',
+    backgroundColor: '#a7c957',
   },
   lost: {
-    backgroundColor: 'red',
+    backgroundColor: '#e01e37',
   },
   draw: {
-    backgroundColor: 'yellow',
+    backgroundColor: '#fcf6bd',
   },
   team: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
   },
   image: {
     width: 50,
     height: 50,
   },
+  vue:{
+  backgroundColor:'#041020',
+    },
+textCenter:{
+textAlign:'center',
+  color:'white',
+
+},
+score:{
+fontWeight:'bold',
+fontSize:23,
+color:'black',
+},
+scoreContainer: {
+      justifyContent: 'center', // Centers the score text vertically
+},
+teamName:{
+color :'black',
+},
 });

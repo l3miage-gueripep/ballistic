@@ -10,7 +10,6 @@ export const StandingsScreen: React.FC<StandingsScreenProps> = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Standings</Text>
             <CurrentLeagueStandingsListComponent leagueId={leagueId}></CurrentLeagueStandingsListComponent>
         </View>
     );
@@ -21,6 +20,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor:'#041020',
     },
     title: {
         fontSize: 24,

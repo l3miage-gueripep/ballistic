@@ -55,10 +55,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
   },
-  image: {
-    width: 50,
-    height: 50,
-  },
+
 });
 
 export default TeamMatchesListComponent;

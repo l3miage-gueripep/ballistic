@@ -15,20 +15,19 @@ export const TeamPlayersListComponent: React.FC<TeamPlayersListComponentProps> =
 }) => {
   const navigation = useNavigation<HomePageNavigationProp>();
   const renderItem = ({ item }: { item: Player }) => {
-    return (<View>
-      <TouchableOpacity style={[styles.item]}
-        key={item.id}
-        onPress={() =>
-          navigation.navigate('PlayerDetailsScreen', { player: item })
-        }>
+    return (
+      <TouchableOpacity style={styles.item} key={item.id} onPress={() =>
+        navigation.navigate('PlayerDetailsScreen', { player: item })
+      }>
         <Image source={{ uri: item.face_image }} style={styles.face} />
-        <Image source={{ uri: item.country_flag }} style={styles.flag} />
-        <Text>
+        <View style={styles.flagContainer}>
+          <Image source={{ uri: item.country_flag }} style={styles.flag} />
+        </View>
+        <Text style={styles.name}>
           {item.display_name}
         </Text>
-
       </TouchableOpacity>
-    </View>);
+    );
   };
 
   return (
@@ -75,20 +74,34 @@ const styles = StyleSheet.create({
   item: {
     padding: 20,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    alignItems: 'center',
+    justifyContent: 'space-between', // Distribute space between children
   },
   face: {
     width: 50,
     height: 50,
     marginRight: 10,
+    backgroundColor: 'white',
+    borderRadius: 25, // Make it round
+  },
+  flagContainer: {
+    flex: 1,
+    alignItems: 'center', // Center the flag horizontally
   },
   flag: {
-    width: 80,
-    marginRight: 10,
+    width: 40,
+    height: 25,
   },
   title: {
-    fontSize: 32,
+    fontSize: 27,
+    fontWeight: 'bold',
+    color: 'white',
+    marginLeft: 15,
   },
+  name: {
+    color: 'white',
+    width:90,
+  }
 });
 
 export default TeamPlayersListComponent;
